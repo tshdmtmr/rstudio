@@ -1,0 +1,90 @@
+    {{- $assetBusting := not .Site.Params.disableAssetsBusting }}
+    <link href="{{"css/nucleus.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/fontawesome-all.min.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/featherlight.min.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/perfect-scrollbar.min.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/auto-complete.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/theme.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    {{- $themevariants := slice | append .Site.Params.themeVariant }}
+    {{- with index $themevariants 0 }}
+    <link id="variant-style" href="{{(printf "css/theme-%s.css" .) | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    <link href="{{"css/variant.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    {{- end }}
+    <link href="{{"css/theme-relearn-light.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet" media="print">
+    <link href="{{"css/print.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet" media="print">
+    {{- range .Site.Params.custom_css }}
+    <link href="{{(printf "%s" .) | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
+    {{- end }}
+    <style>
+    {{- if .Site.Params.disableInlineCopyToClipBoard }}
+      :not(pre) > code.copy-to-clipboard-code + span.copy-to-clipboard-button {
+        display: none;
+      }
+      :not(pre) > code.copy-to-clipboard-code {
+        border-bottom-right-radius: 2px;
+        border-top-right-radius: 2px;
+        border-right-width: 1px;
+      }
+    {{- end }}
+    </style>
+    <script>
+      {{ "// we need to define this script in the head to avoid flickering" | safeJS }}
+      {{ "// on page load if the user has selected a non default variant" | safeJS }}
+      var theme = window.localStorage.getItem( 'theme' );
+      changeTheme( theme );
+      function parseTheme( s ){
+        if( !s || !s.match ){
+          return '';
+        }
+        var matches = s.match(/^.*\/theme-(.*?)\.css.*$/);
+        var theme = matches && matches.length == 2 ? matches[ 1 ] : '';
+        return theme;
+      }
+      function getTheme(){
+        var link = document.querySelector( '#variant-style' );
+        if( !link ){
+          return;
+        }
+        var path = link.getAttribute( 'href' );
+        var theme = parseTheme( path );
+        return theme;
+      }
+      function markTheme( theme ){
+        var select = document.querySelector( '#select-theme' );
+        if( !select ){
+          return;
+        }
+        select.value = theme;
+      }
+      function changeTheme( theme ){
+        {{- $quotedthemevariants := slice }}
+        {{- range $themevariants }}
+          {{- $quotedthemevariants = $quotedthemevariants | append (printf "\"%s\"" .) }}
+        {{- end }}
+        var themes = [ {{ delimit $quotedthemevariants ", " | safeJS }} ];
+        if( themes.indexOf( theme ) < 0 ){
+          theme = themes.length ? themes[ 0 ] : null;
+        }
+        if( !theme ){
+          return;
+        }
+        var link = document.querySelector( '#variant-style' );
+        if( !link ){
+          return;
+        }
+        var old_path = link.getAttribute( 'href' );
+        var new_path = old_path.replace( /^(.*\/theme-).*?(\.css.*)$/, '$1' + theme + '$2' );
+        if( old_path != new_path ){
+          window.localStorage.setItem( 'theme', theme );
+          link.setAttribute( 'href', new_path );
+          markTheme( theme );
+          {{ "// remove selection, because if some uses an arrow navigation" | safeJS }}
+          {{ "// by pressing the left or right cursor key, we will automatically" | safeJS }}
+          {{ "// select a different style" | safeJS }}
+          if( document.activeElement ){
+            document.activeElement.blur();
+          }
+        }
+      }
+    </script>
+    <script src="{{"js/jquery.min.js"| relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}"></script>
