@@ -1,0 +1,46 @@
+---
+title: "Blogdown"
+author: "tshdmtmr"
+date: '2022/02/19'
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+
+# Create project
+The best home for your new blogdown website project is inside an RStudio project. A quick way to create one is to use the RStudio New Project Wizard (File -> New Project -> New Directory) 
+
+
+# Serve site
+Run blogdown::serve_site() from the console or equivalently, click on the RStudio addin “Serve Site”
+
+#  Edit content
+In your files pane, navigate inside the content/ folder.  
+Let’s edit this index.Rmd post. This post is a Hugo page bundle. Each post gets its own bundle, or folder. Inside the post bundle is where your static post-specific files like images and .csv data files should go.
+
+# Configure site
+The config.yaml file stores your website configurations for Hugo and for your Hugo theme. 
+
+# Deployment
+Considering the cost and friendliness to beginners, we currently recommend Netlify (https://www.netlify.com). 
+
+# Netlify 
+Netlify allows you to quickly publish a website by uploading the public/ folder through its web interface, and you will be assigned a random subdomain *.netlify.com.  
+Basically, you have to host all source files of your website in a GIT repository.  
+You do not need to put the public/ directory under version control30 because it will be automatically generated.  
+Currently, Netlify supports GIT repositories hosted on GitHub. With any of these accounts, you can log into Netlify from its homepage and follow the guide to create a new site from your GIT repository.  
+
+you may need to change the value of the environment variable HUGO_VERSION to a recent version of Hugo, or add a netlify.toml to the root directory of your site and add the line HUGO_VERSION = "0.24.1", for example.
+
+It may take a minute or two to deploy your website on Netlify for the first time, but it can be much faster later (a few seconds) when you update your website source, because Netlify deploys incremental changes in the public/ directory, i.e., only the newer files compared to the last time are deployed.  
+
+
+After your GIT repository is connected with Netlify, the last issue you may want to solve is the domain name, unless you are satisfied with the free Netlify subdomain. If you want to use a different domain, you need to configure some DNS records of the domain to point it to the Netlify server. See Appendix C for some background knowledge on domain names.  
+
+
+If you are not familiar with domain names or do not want to learn more about them, something to consider is a free subdomain *.rbind.io offered by RStudio, PBC. Please visit the Rbind support website https://support.rbind.io to learn how to apply for a subdomain. In fact, the Rbind organization also offers free help on how to set up a website based on blogdown, thanks to a lot of volunteers from the R and statistics community.  
+
+
+
+
+
