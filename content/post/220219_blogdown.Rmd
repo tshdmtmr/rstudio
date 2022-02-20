@@ -1,52 +1,68 @@
 ---
-title: "Blogdown"
+title: 'WebSite Under Construction'
 author: "tshdmtmr"
 date: '2022/02/20'
 categories: ["R"]
-tags: ["R Markdown", "plot", "regression"]
+tags: ["RMarkdown"]
 ---
 
 
-# GitHubにアクセスして、レポジトリを作る
-https://github.com/tshdmtmr/rstudio
+# やりたい事と大まかな流れ
+- RMarkdownを使って、簡単に静的Webサイトを更新していくこと。
+- その為に、RStudio、GitHub、Netlifyを使う。
+- Rライブラリのblogdownを使うと、所定のフォルダにRmdファイルを放り込むだけで、.htmlファイルが自動生成される。
+	- 凄すぎる・・
+	- RStudio上で、blogdown:::serve_site()を実行しておく。
+		- すると、エディタで保存するタイミングで、.htmlファイルが自動生成されます。
+			- 凄すぎる
+- blogdownが自動生成したファイルを、RStudioからGitを使って、GitHubのリモートレポジトリにcommit、pushする。
+	- ここは手動
+- 同時に、Netlify側で、deploy先をGitHubのリモートレポジトリに指定しておく。
+	- すると勝手に！build up してくれる
+		- 凄すぎる
+
+# 流れ
+## GitHubにアクセスして、リモートレポジトリを作る
+- 以下の様に作ってみた
+- https://github.com/tshdmtmr/rstudio
+
+## RStudioから、projectを作る
+- File > New Project > Version Control > Git
+- Repository URL: に先に発行しておいたリモートレポジトリのURLを貼り付ける
+- ローカルのディレクトリを間違えない様に注意して・・、プロジェクト作成
+
+## RStudioから、blogdown:::new_siteを実行する
+- Hugoのthemeを選んでおく。
+	- Hugoというのは、静的サイトジェネレーター
+	- Jekyllも使えるらしい
+- 下記を実行
+	- blogdown::new_site(theme = 'McShelby/hugo-theme-relearn')
+	- 後からHugoのテーマは変えられるらしいが、まだ、やってない
+- content/post 以下のファイルが公開される
+
+## RStudioから、blogdown:::serve_site()を実行する
+- RStudioのAddinsから、“Serve Site”をクリックしても良し
+- RStudioのtoolbarにある、'Knit button' を押さない様に注意！
+
+## Netlifyに接続
+- 下記にアクセス
+	- https://www.netlify.com
+- 初回は、独自ドメインやら、何やら設定する
+- deploy先は、Gitのリモートレポジトリを指定
+- GitHubにpushした後に、Netlifyからdeployを実行すると、サイトが更新される
 
 
-# RStudioから、themeを選んで、blogdownを実行する
-blogdown::new_site(theme = 'McShelby/hugo-theme-relearn')
-
-# Click the RStudio addin “Serve Site” to preview the site in RStudio Viewer. 
-This only needs to be done once every time you open the RStudio project or restart your R session.  
-Do not click the Knit button on the RStudio toolbar.
-
-# Edit content
-## Gitにeditorの登録をしておくと便利
-In your files pane, navigate inside the content/ folder.  
-Let’s edit this index.Rmd post. This post is a Hugo page bundle. Each post gets its own bundle, or folder. Inside the post bundle is where your static post-specific files like images and .csv data files should go.
-
-# Configure site
-The config.yaml file stores your website configurations for Hugo and for your Hugo theme. 
-
-# RStudio(のTerminal)から
-## git add
-## git commit
-## git push
-
-# Deployment
-Considering the cost and friendliness to beginners, we currently recommend Netlify (https://www.netlify.com). 
-
-# Netlify 
-Netlify allows you to quickly publish a website by uploading the public/ folder through its web interface, and you will be assigned a random subdomain *.netlify.com.  
-Basically, you have to host all source files of your website in a GIT repository.  
-You do not need to put the public/ directory under version control30 because it will be automatically generated.  
-Currently, Netlify supports GIT repositories hosted on GitHub. With any of these accounts, you can log into Netlify from its homepage and follow the guide to create a new site from your GIT repository.  
-
-you may need to change the value of the environment variable HUGO_VERSION to a recent version of Hugo, or add a netlify.toml to the root directory of your site and add the line HUGO_VERSION = "0.24.1", for example.
-
-It may take a minute or two to deploy your website on Netlify for the first time, but it can be much faster later (a few seconds) when you update your website source, because Netlify deploys incremental changes in the public/ directory, i.e., only the newer files compared to the last time are deployed.  
+# Gitのコマンド
+## RStudioから全て実行できる
+- status
+	- RStudioのGitコンソールに表示されている
+- commit
+- push
 
 
-After your GIT repository is connected with Netlify, the last issue you may want to solve is the domain name, unless you are satisfied with the free Netlify subdomain. If you want to use a different domain, you need to configure some DNS records of the domain to point it to the Netlify server. See Appendix C for some background knowledge on domain names.  
+# Hugo
+- これから研究
 
-
-If you are not familiar with domain names or do not want to learn more about them, something to consider is a free subdomain *.rbind.io offered by RStudio, PBC. Please visit the Rbind support website https://support.rbind.io to learn how to apply for a subdomain. In fact, the Rbind organization also offers free help on how to set up a website based on blogdown, thanks to a lot of volunteers from the R and statistics community.  
+# Misc
+- Gitにeditorの登録をしておくと便利らしい
 
