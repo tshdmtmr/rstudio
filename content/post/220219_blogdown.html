@@ -1,5 +1,5 @@
 ---
-title: 'WebSite Under Construction'
+title: 'Site Under Construction'
 author: "tshdmtmr"
 date: '2022/02/20'
 categories: ["R"]
@@ -9,14 +9,14 @@ tags: ["RMarkdown"]
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<div id="やりたい事と大まかな流れ" class="section level1">
-<h1>やりたい事と大まかな流れ</h1>
+<div id="やりたい事と大まかな流れ" class="section level2">
+<h2>やりたい事と大まかな流れ</h2>
 <ul>
 <li>RMarkdownを使って、簡単に静的Webサイトを更新していくこと。</li>
 <li>その為に、RStudio、GitHub、Netlifyを使う。</li>
-<li>Rライブラリのblogdownを使うと、所定のフォルダにRmdファイルを放り込むだけで、.htmlファイルが自動生成される。
+<li>Rライブラリのblogdownを使うと、所定のフォルダに.Rmdファイルを放り込むだけで、.htmlファイルが自動生成される。
 <ul>
-<li>凄すぎる・・</li>
+<li>.mdファイルでも良いらしいが、Rスクリプトを実行したい場合は、.Rmdで。</li>
 <li>RStudio上で、blogdown:::serve_site()を実行しておく。
 <ul>
 <li>すると、エディタで保存するタイミングで、.htmlファイルが自動生成されます。
@@ -38,25 +38,21 @@ tags: ["RMarkdown"]
 </ul></li>
 </ul>
 </div>
-<div id="流れ" class="section level1">
-<h1>流れ</h1>
-<div id="githubにアクセスしてリモートレポジトリを作る" class="section level2">
-<h2>GitHubにアクセスして、リモートレポジトリを作る</h2>
-<ul>
-<li>以下の様に作ってみた</li>
-<li><a href="https://github.com/tshdmtmr/rstudio" class="uri">https://github.com/tshdmtmr/rstudio</a></li>
-</ul>
+<div id="流れ" class="section level2">
+<h2>流れ</h2>
+<div id="githubにアクセスしてリモートレポジトリを作っておく" class="section level3">
+<h3>GitHubにアクセスして、リモートレポジトリを作っておく</h3>
 </div>
-<div id="rstudioからprojectを作る" class="section level2">
-<h2>RStudioから、projectを作る</h2>
+<div id="rstudioからprojectを作る" class="section level3">
+<h3>RStudioから、projectを作る</h3>
 <ul>
 <li>File &gt; New Project &gt; Version Control &gt; Git</li>
 <li>Repository URL: に先に発行しておいたリモートレポジトリのURLを貼り付ける</li>
 <li>ローカルのディレクトリを間違えない様に注意して・・、プロジェクト作成</li>
 </ul>
 </div>
-<div id="rstudioからblogdownnew_siteを実行する" class="section level2">
-<h2>RStudioから、blogdown:::new_siteを実行する</h2>
+<div id="rstudioからblogdownnew_siteを実行する" class="section level3">
+<h3>RStudioから、blogdown:::new_siteを実行する</h3>
 <ul>
 <li>Hugoのthemeを選んでおく。
 <ul>
@@ -71,15 +67,15 @@ tags: ["RMarkdown"]
 <li>content/post 以下のファイルが公開される</li>
 </ul>
 </div>
-<div id="rstudioからblogdownserve_siteを実行する" class="section level2">
-<h2>RStudioから、blogdown:::serve_site()を実行する</h2>
+<div id="rstudioからblogdownserve_siteを実行する" class="section level3">
+<h3>RStudioから、blogdown:::serve_site()を実行する</h3>
 <ul>
 <li>RStudioのAddinsから、“Serve Site”をクリックしても良し</li>
 <li>RStudioのtoolbarにある、‘Knit button’ を押さない様に注意！</li>
 </ul>
 </div>
-<div id="netlifyに接続" class="section level2">
-<h2>Netlifyに接続</h2>
+<div id="netlifyに接続" class="section level3">
+<h3>Netlifyに接続</h3>
 <ul>
 <li>下記にアクセス
 <ul>
@@ -91,10 +87,10 @@ tags: ["RMarkdown"]
 </ul>
 </div>
 </div>
-<div id="gitのコマンド" class="section level1">
-<h1>Gitのコマンド</h1>
-<div id="rstudioから全て実行できる" class="section level2">
-<h2>RStudioから全て実行できる</h2>
+<div id="gitのコマンド" class="section level2">
+<h2>Gitのコマンド</h2>
+<div id="rstudioから全て実行できる" class="section level3">
+<h3>RStudioから全て実行できる</h3>
 <ul>
 <li>status
 <ul>
@@ -105,14 +101,14 @@ tags: ["RMarkdown"]
 </ul>
 </div>
 </div>
-<div id="hugo" class="section level1">
-<h1>Hugo</h1>
+<div id="hugo" class="section level2">
+<h2>Hugo</h2>
 <ul>
 <li>これから研究</li>
 </ul>
 </div>
-<div id="misc" class="section level1">
-<h1>Misc</h1>
+<div id="misc" class="section level2">
+<h2>Misc</h2>
 <ul>
 <li>Gitにeditorの登録をしておくと便利らしい</li>
 </ul>

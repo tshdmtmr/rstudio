@@ -1,5 +1,5 @@
 ---
-title: 'WebSite Under Construction'
+title: 'Site Under Construction'
 author: "tshdmtmr"
 date: '2022/02/20'
 categories: ["R"]
@@ -7,11 +7,11 @@ tags: ["RMarkdown"]
 ---
 
 
-# やりたい事と大まかな流れ
+## やりたい事と大まかな流れ
 - RMarkdownを使って、簡単に静的Webサイトを更新していくこと。
 - その為に、RStudio、GitHub、Netlifyを使う。
-- Rライブラリのblogdownを使うと、所定のフォルダにRmdファイルを放り込むだけで、.htmlファイルが自動生成される。
-	- 凄すぎる・・
+- Rライブラリのblogdownを使うと、所定のフォルダに.Rmdファイルを放り込むだけで、.htmlファイルが自動生成される。
+	- .mdファイルでも良いらしいが、Rスクリプトを実行したい場合は、.Rmdで。
 	- RStudio上で、blogdown:::serve_site()を実行しておく。
 		- すると、エディタで保存するタイミングで、.htmlファイルが自動生成されます。
 			- 凄すぎる
@@ -21,17 +21,15 @@ tags: ["RMarkdown"]
 	- すると勝手に！build up してくれる
 		- 凄すぎる
 
-# 流れ
-## GitHubにアクセスして、リモートレポジトリを作る
-- 以下の様に作ってみた
-- https://github.com/tshdmtmr/rstudio
+## 流れ
+### GitHubにアクセスして、リモートレポジトリを作っておく
 
-## RStudioから、projectを作る
+### RStudioから、projectを作る
 - File > New Project > Version Control > Git
 - Repository URL: に先に発行しておいたリモートレポジトリのURLを貼り付ける
 - ローカルのディレクトリを間違えない様に注意して・・、プロジェクト作成
 
-## RStudioから、blogdown:::new_siteを実行する
+### RStudioから、blogdown:::new_siteを実行する
 - Hugoのthemeを選んでおく。
 	- Hugoというのは、静的サイトジェネレーター
 	- Jekyllも使えるらしい
@@ -40,11 +38,11 @@ tags: ["RMarkdown"]
 	- 後からHugoのテーマは変えられるらしいが、まだ、やってない
 - content/post 以下のファイルが公開される
 
-## RStudioから、blogdown:::serve_site()を実行する
+### RStudioから、blogdown:::serve_site()を実行する
 - RStudioのAddinsから、“Serve Site”をクリックしても良し
 - RStudioのtoolbarにある、'Knit button' を押さない様に注意！
 
-## Netlifyに接続
+### Netlifyに接続
 - 下記にアクセス
 	- https://www.netlify.com
 - 初回は、独自ドメインやら、何やら設定する
@@ -52,17 +50,17 @@ tags: ["RMarkdown"]
 - GitHubにpushした後に、Netlifyからdeployを実行すると、サイトが更新される
 
 
-# Gitのコマンド
-## RStudioから全て実行できる
+## Gitのコマンド
+### RStudioから全て実行できる
 - status
 	- RStudioのGitコンソールに表示されている
 - commit
 - push
 
 
-# Hugo
+## Hugo
 - これから研究
 
-# Misc
+## Misc
 - Gitにeditorの登録をしておくと便利らしい
 
