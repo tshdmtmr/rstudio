@@ -3,7 +3,7 @@ canonifyURLs: no
 relativeURLs: no
 theme: hugo-theme-relearn
 languageCode: en
-defaultContentLanguage: jp
+defaultContentLanguage: en
 title: tshdmtmr
 params:
   author: Sören Weber
