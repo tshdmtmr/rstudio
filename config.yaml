@@ -1,18 +1,10 @@
-<<<<<<< HEAD
 baseURL: https://example.com
-=======
-baseURL: https://www.tshdmtmr.com
->>>>>>> cf5c3bc (# Go go!!)
 canonifyURLs: no
 relativeURLs: no
 theme: hugo-theme-relearn
 languageCode: en
-defaultContentLanguage: en
-<<<<<<< HEAD
-title: Hugo Relearn Documentation
-=======
+defaultContentLanguage: jp
 title: tshdmtmr
->>>>>>> cf5c3bc (# Go go!!)
 params:
   author: Sören Weber
   description: Documentation for Hugo Relearn Theme
@@ -54,7 +46,7 @@ Languages:
   en:
     landingPageName: <i class='fas fa-home'></i> Home
     landingPageURL: /
-    languageName: English
+    languageName: Misc
     menu:
       shortcuts:
         - identifier: ds
