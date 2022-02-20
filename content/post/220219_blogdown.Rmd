@@ -7,6 +7,19 @@ tags: ["R Markdown", "plot", "regression"]
 ---
 
 
+# GitHubにアクセスして、レポジトリを作る
+https://github.com/tshdmtmr/rstudio
+
+
+# RStudioから、themeを選んで、blogdownを実行する
+blogdown::new_site(theme = 'McShelby/hugo-theme-relearn')
+
+# Click the RStudio addin “Serve Site” to preview the site in RStudio Viewer. 
+This only needs to be done once every time you open the RStudio project or restart your R session. Do not click the Knit button on the RStudio toolbar.
+
+
+
+
 # Create project
 The best home for your new blogdown website project is inside an RStudio project. A quick way to create one is to use the RStudio New Project Wizard (File -> New Project -> New Directory) 
 
