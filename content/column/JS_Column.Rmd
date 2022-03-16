@@ -1,17 +1,16 @@
 ---
-title: 'ゆるゆるコラム'
-author: 'tshdmtmr'
 date: "`r Sys.Date()`"
 output:
   rmdformats::readthedown:
     code_folding: hide
-    self_contained: true
+    self_contained: false
     thumbnails: false
     lightbox: false
     md_extensions: -ascii_identifiers
     css: custom.css
 header-includes:
   - \usepackage{amsmath, amssymb}
+weight: 5
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 chapter: true
 title: Column
-weight: 1
+weight: 4
 ---
 
 ### Chapter 4
