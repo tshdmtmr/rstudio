@@ -1,6 +1,6 @@
 ---
-title: "Baka"
-author: "Hoge Hoge Foo"
+title: "Pooh-pooh"
+author: "Hoge Foo"
 date: 2020-12-01T21:13:14-05:00
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
