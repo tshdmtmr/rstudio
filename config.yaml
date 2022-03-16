@@ -48,24 +48,24 @@ Languages:
     landingPageURL: /
     languageName: Misc
     menu:
-      shortcuts:
-        - identifier: ds
-          name: <i class='fab fa-fw fa-github'></i> GitHub repo
-          url: https://github.com/McShelby/hugo-theme-relearn
-          weight: 10
-        - name: <i class='fas fa-fw fa-camera'></i> Showcases
-          url: more/showcase/
-          weight: 11
-        - identifier: hugodoc
-          name: <i class='fas fa-fw fa-bookmark'></i> Hugo Documentation
-          url: https://gohugo.io/
-          weight: 20
-        - name: <i class='fas fa-fw fa-bullhorn'></i> Credits
-          url: more/credits/
-          weight: 30
-        - name: <i class='fas fa-fw fa-tags'></i> Tags
-          url: tags/
-          weight: 40
+      # shortcuts:
+      #   - identifier: ds
+      #     name: <i class='fab fa-fw fa-github'></i> GitHub repo
+      #     url: https://github.com/McShelby/hugo-theme-relearn
+      #     weight: 10
+      #   - name: <i class='fas fa-fw fa-camera'></i> Showcases
+      #     url: more/showcase/
+      #     weight: 11
+      #   - identifier: hugodoc
+      #     name: <i class='fas fa-fw fa-bookmark'></i> Hugo Documentation
+      #     url: https://gohugo.io/
+      #     weight: 20
+      #   - name: <i class='fas fa-fw fa-bullhorn'></i> Credits
+      #     url: more/credits/
+      #     weight: 30
+      #   - name: <i class='fas fa-fw fa-tags'></i> Tags
+      #     url: tags/
+      #     weight: 40
     title: Documentation for Hugo Relearn Theme
     weight: 1
   pir:
