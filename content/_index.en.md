@@ -1,5 +1,5 @@
 ---
-title: Relearn Theme for Hugo
+title: Relearn Theme for Hoge
 ---
 
 # Hugo Relearn Theme
