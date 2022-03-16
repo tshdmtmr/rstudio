@@ -1,5 +1,5 @@
 ---
-title: 'Site Under Construction'
+title: 'Under Construction'
 author: "tshdmtmr"
 date: '2022/02/20'
 categories: ["R"]
@@ -49,9 +49,12 @@ tags: ["RMarkdown"]
 - deploy先は、Gitのリモートレポジトリを指定
 - GitHubにpushした後に、Netlifyからdeployを実行すると、サイトが更新される
 
+# ファイルの置き場所
+- '/Users/tm/Dropbox/rstudio/public/post/'
 
-## Gitのコマンド
-### RStudioから全て実行できる
+## 新規ファイルのcommit 〜 push 〜 publish
+-  GitのコマンドはRStudioから全て実行できる
+- まず、RStudioから、rstudio.Rprojを開く 
 - status
 	- RStudioのGitコンソールに表示されている
 - commit
